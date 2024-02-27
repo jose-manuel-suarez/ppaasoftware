@@ -1,0 +1,14 @@
+#Etapa de construcción del proyecto
+FROM eclipse-temurin:17-jdk-alpine AS builder
+WORKDIR /opt/app/
+# La carpeta src debe contener los fuentes de la aplicación y debe estar al mismo nivel de filesystem que el dockerfile
+COPY src src
+COPY gradle gradle
+COPY build.gradle settings.gradle gradlew ./
+RUN ./gradlew assemble
+
+
+#Etapa de ejecución del proyecto
+FROM eclipse-temurin:17-jre-alpine AS runtime
+COPY --from=builder /opt/app/build/libs/ejercicio1-0.0.1-SNAPSHOT.jar /opt/app.jar
+ENTRYPOINT java -jar /opt/app.jar
