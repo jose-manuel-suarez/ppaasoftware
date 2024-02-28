@@ -21,36 +21,41 @@ Entre los prerequisitos para este punto se encuentran:
 4. Tener creada una cuenta de PostMan, ya que lo usaremos como aplicativo para probar nuestra API.
 
 <br>&emsp;&emsp;
+**Spring Initializr**<br>
+&emsp;&emsp;
 Crearemos nuestro proyecto utilizando el framewor SpringBoot, un subconjunto del framework Spring que permite una creación y configuración acelearada de proyectos web con Java. Para ello utilizaremos la herramienta [**Spring initializr**](https://start.spring.io/ "Herramienta de inicialización automática para proyectos SpringBoot"), que permite crear un proyecto Spring con una serie de dependencias básicas iniciales.
 
+&emsp;&emsp;
 Utilizaremos las opciones:
 
-1. Project -> **Gradle - Groovy**
-2. Language -> **Java**
-3. Spring Boot -> **3.2.3** (Versiones 3.x.x requieren Java JDK 17)
-4. Project Metadata
+- Project -> **Gradle - Groovy**
+- Language -> **Java**
+- Spring Boot -> **3.2.3** (Versiones 3.x.x requieren Java JDK 17)
+- Project Metadata
     - Group -> **ar.edu.unlp.ppaas**
     - Artifact -> **ejercicio1**
     - Name -> **ejercicio1** (autogenerado a partir de Artifact)
     - Description -> **patrones de arquitecturas de software - ejercicio 1**
     - Package Name -> **ar.edu.unlp.ppaas.ejercicio1** (autogenerado dinámicamente a partir de los campos previos _[Group + Artifact]_)
-5. Packaging -> **Jar**
-6. Java -> **17**
+- Packaging -> **Jar**
+- Java -> **17**
 
+&emsp;&emsp;
 En la sección de la derecha (Dependencies) agregaremos:
 
-1. **Spring Web**
+- **Spring Web**
     - Que nos permitirá crear aplicaciones Spring respetando el patrón MVC e incorpora el servidor de aplicaciones Apache Tomcat.
-2. **Spring Data JPA**
+- **Spring Data JPA**
     - Que nos permitirá utilizar Java Persistence API, además de Hibernate.
-3. **H2 Database**
+- **H2 Database**
     - Que nos permitirá mantener y gestinoar una BBDD en memoria, configurable mediante nuestro browser.
-4. **Spring Boot DevTools** (Opcional)
+- **Spring Boot DevTools** (Opcional)
     - Que nos permitirá el reinicio rápido de nuestra aplicación, recarga en vivo luego de realizar cambios y una más amena experiencie de desarrollo.
-5. **Lombok** (Opcional)
+- **Lombok** (Opcional)
     - Que nos permitirá reducir código repetitivo en nuestro proyecto, manteniendo código mucho más liviano.
 
-Finalmente seleccionamos **GENERATE**<br>
+Finalmente generamos el proyecto Spring, seleccionando: &emsp;
+<button style="background-color: rgb(109, 179, 10); color: black; letter-spacing: 1px;">**GENERATE**</button><br>
 Esto nos descargará un archivo comprimido (\*.zip) con nuestro proyecto.
 Procedemos a descomprimirlo, copiarlo en el directorio de nuestra preferencia y abrir el proyecto, utilizando nuestro IDE.
 
@@ -158,6 +163,29 @@ En el directorio raíz de nuestro proyecto debemos crear un archivo de configura
 
 <br>
 
+### Agregando la entidad 'Persona' a nuestro modelo de datos
+
+- Cree un subdirectorio **_/model_**, éste contedrá todas las clases asociadas a nuestro modelo.
+    - Notación recomendada para cada clase definida en este paquete: _nombreEntidad**Model**.java_, siendo "nombre" el nombre de la clase. Por ejemplo, para la entidad **Persona** definiríamos: . _/model/**PersonaModel.java**_
+- Crear la entidad del modelo de datos **Persona**, definiendo una clase que contenga, al menos, los siguientes atributos:
+    - Id
+    - Apellidos y nombres
+    - Fecha de nacimiento
+    - Email
+- Crear para cada atributo definido, los getters y setters.
+- Crear al menos 2 constructores asociadosm (sin atributos parametrizados y con todos los atributos parametrizados).
+- Es posible utilizar **_Lombok_**, mediante anotaciones para tal fin (investigar: _@NoArgsConstructor_ _@AllArgsConstructor_
+_@Getter_ _@Setter_).
+- Crear una clase **DTO** para la entidad **Persona** que contenga los siguientes atributos:
+    - Id
+    - Nombre completo -> que surge de la concatenación de apellidos y nombres, con formato: [apellidos, nombres].
+    - Edad -> calculada a partir de los años transcurridos desde la fecha de nacimiento.
+    - Email
+
+    &emsp;&emsp; **_Tip_**: tenga en cuenta que este objeto, por definición, no debería contener nada relativo a la lógica del negocio sino simplemente funcionalidad asociada al almacenamiento y recuperación de datos.
+
+<br>
+
 ### Fuentes Relacionadas
 
 &emsp;[![Java17](https://img.shields.io/badge/Descargar_JDK_17-oracle.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.oracle.com/java/technologies/downloads/#java17)</br>
@@ -167,6 +195,8 @@ En el directorio raíz de nuestro proyecto debemos crear un archivo de configura
 &emsp;[![H2DBSpring](https://img.shields.io/badge/Spring_Boot_with_H2_Data_Base-baeldung.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.baeldung.com/spring-boot-h2-database)</br>
 &emsp;[![ArqSpring](https://img.shields.io/badge/SpringBoot_Architecture-geeksforgeeks.org-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.geeksforgeeks.org/spring-boot-architecture/)</br>
 &emsp;[![SpringMVC](https://img.shields.io/badge/Spring_Web_MVC-docs.spring.io-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://docs.spring.io/spring-framework/docs/5.3.25/reference/html/web.html#mvc)</br>
+&emsp;[![Lombok](https://img.shields.io/badge/Lombok-projectlombok.org-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://projectlombok.org/)</br>
+&emsp;[![DTO](https://img.shields.io/badge/DTO-wikipedia.org-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://en.wikipedia.org/wiki/Data_transfer_object)</br>
 &emsp;[![ServiciosREST](https://img.shields.io/badge/Construyendo_servicios_REST_con_Spring-spring.io-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://spring.io/guides/tutorials/rest)</br>
 &emsp;[![JPAEntity](https://img.shields.io/badge/Entidades_JPA-baeldung.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.baeldung.com/jpa-entities)</br>
 &emsp;[![PersistenceJPA](https://img.shields.io/badge/Capa_de_persistencia_JPA-baeldung.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa)</br>

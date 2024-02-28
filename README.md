@@ -31,10 +31,10 @@ El propósito de este repositorio es principalmente servir como guía interactiv
 
 ### Bibliografía
 
-&emsp;[![BM](https://img.shields.io/badge/Building_Microservices_|_Designing_Fine_Grained_Systems-Sam_Newman-1abc9c.svg?logo=gitbook&logoColor=white)]()</br>
-&emsp;[![CA](https://img.shields.io/badge/Clean_Architecture_|_A_Craftsman´s_Guide_to_Software_Structure_and_Desing-Robert_C._Martin-1abc9c.svg?logo=gitbook&logoColor=white)]()</br>
-&emsp;[![DDD](https://img.shields.io/badge/Domain_Driven_Design_|_Tackling_Complexity_in_the_heart_of_Software-Eric_Evans-1abc9c.svg?logo=gitbook&logoColor=white)]()</br>
-&emsp;[![MPWEJ](https://img.shields.io/badge/Microservices_Patterns_|_with_examples_in_Java-Chris_Richardson-1abc9c.svg?logo=gitbook&logoColor=white)]()
+&emsp;[![BM](https://img.shields.io/badge/Building_Microservices_|_Designing_Fine_Grained_Systems-Sam_Newman-1abc9c.svg?logo=gitbook&logoColor=1abc9c)]()</br>
+&emsp;[![CA](https://img.shields.io/badge/Clean_Architecture_|_A_Craftsman´s_Guide_to_Software_Structure_and_Desing-Robert_C._Martin-1abc9c.svg?logo=gitbook&logoColor=1abc9c)]()</br>
+&emsp;[![DDD](https://img.shields.io/badge/Domain_Driven_Design_|_Tackling_Complexity_in_the_heart_of_Software-Eric_Evans-1abc9c.svg?logo=gitbook&logoColor=1abc9c)]()</br>
+&emsp;[![MPWEJ](https://img.shields.io/badge/Microservices_Patterns_|_with_examples_in_Java-Chris_Richardson-1abc9c.svg?logo=gitbook&logoColor=1abc9c)]()
 
 ### Contacto
 
