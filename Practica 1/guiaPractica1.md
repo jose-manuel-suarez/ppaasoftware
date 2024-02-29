@@ -263,7 +263,8 @@ Para la administración de nuestro código, que nos permita trabajar de forma di
 &emsp;[![Autowired](https://img.shields.io/badge/Spring_anotacion_@Autowired-baeldung.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.baeldung.com/spring-autowire)</br>
 &emsp;[![MapStruct](https://img.shields.io/badge/Libreria_Map_Struct-mapstruct.org-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://mapstruct.org/documentation/stable/reference/html/#basic-mappings)</br>
 &emsp;[![AppRunner](https://img.shields.io/badge/Application_Runner-baeldung.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.baeldung.com/running-setup-logic-on-startup-in-spring#7-spring-boot-applicationrunner)</br>
-
+&emsp;[![GitHubDocs](https://img.shields.io/badge/GitHub_Docs-docs.github.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://docs.github.com/es)
+&emsp;[![GitLabDocs](https://img.shields.io/badge/GitLab_Docs-docs.gitlab.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://docs.gitlab.com/)</br>
 <br>
 
 ### Contacto
