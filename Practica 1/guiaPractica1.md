@@ -176,13 +176,72 @@ En el directorio raíz de nuestro proyecto debemos crear un archivo de configura
 - Crear al menos 2 constructores asociadosm (sin atributos parametrizados y con todos los atributos parametrizados).
 - Es posible utilizar **_Lombok_**, mediante anotaciones para tal fin (investigar: _@NoArgsConstructor_ _@AllArgsConstructor_
 _@Getter_ _@Setter_).
-- Crear una clase **DTO** para la entidad **Persona** que contenga los siguientes atributos:
+- Crear una clase <a id="dto_persona">**DTO** para la entidad **Persona**</a> que contenga los siguientes atributos:
     - Id
     - Nombre completo -> que surge de la concatenación de apellidos y nombres, con formato: [apellidos, nombres].
     - Edad -> calculada a partir de los años transcurridos desde la fecha de nacimiento.
     - Email
 
     &emsp;&emsp; **_Tip_**: tenga en cuenta que este objeto, por definición, no debería contener nada relativo a la lógica del negocio sino simplemente funcionalidad asociada al almacenamiento y recuperación de datos.
+
+<br>
+
+### Agregando el repositorio 'Persona'
+
+- Defina un <a id="repositorio">repositorio JPA para las personas</a>, mediante la creación de una interface que extienda de alguna de las provistas por el framework. De este modo nuestras clases utilizarán el rpositorio mediante la implementación de esta interface que contendrá implementaciones por defecto para los CRUDs.
+    - En nuestro caso extenderemos desde la clase **JpaRepository<T, id>**
+    - Existen varios tipos de repositorios más en la jerarquía, por ejemplo **PagingAndSortingRepository**, que cómo su nombre indica permite implementar queries a la BD considerando paginación y ordenamiento.
+
+<br>
+
+### Agregando el los servicios asociados a la 'Persona'
+
+- Defina un servicio encargado de transformar (mapping) una entidad de la BBDD (DAO) en el [DTO que definimos previamente](#dto_persona).
+    - Es posible hacerlo manualmente o recurrir a una librería para tal fin, como por ejemplo: **MapStruct**.<br>
+
+- Defina otro <a id="servicio">servicio</a> que contendrá las operaciones exportadas por el servicio web.
+    - Dar de alta una nueva persona en el sistema (**CREATE**)
+    - Obtener el listado de todas las personas del sistema (**READ** (N))
+    - Obtener una persona determinada dentro del sistema (**READ** (1))
+    - Actualizar una persona del sistema (**UPDATE**)
+    - Eliminar una persona del sistema (**DELETE**)<br>
+
+&emsp;&emsp; **_Tips_**: <br>&emsp;&emsp;&emsp;&emsp;
+    - Recuerde etiquetar ambas clases con la anotación **@Service** para registrarlas en Spring.<br>&emsp;&emsp;&emsp;&emsp;
+    - Las operaciones que cada servicio debe implementar deberían estar definidas en una interface asociada.<br>&emsp;&emsp;&emsp;&emsp;
+    - Recordar usar la etiqueta **@Autowired** en estos servicios, para inyectar las dependencias necesarias. Por ejemplo, el servicio que define los CRUDs, requerirá la inyección del [repositorio creado](#repositorio).<br>
+
+<br>
+
+### Creando el controlador asociado a la 'Persona'
+
+- Crear un controlador donde se definan los puntos de acceso (_endpoints_) para las operaciones que exportará el srvicio.
+
+&emsp;&emsp; **_Tips_**: <br>&emsp;&emsp;&emsp;&emsp;
+    - Recuerde etiquetar ambas clases con la anotación **@RestController** para registrarlas en Spring.<br>&emsp;&emsp;&emsp;&emsp;
+    - Recordar usar la etiqueta **@Autowired** cuando lo requiera, para inyectar las dependencias necesarias. Por ejemplo, el controlador requerirá la inyección del [servicio creado](#servicio) para implementar cada funcionalidad expuesta por un punto de acceso.<br>&emsp;&emsp;&emsp;&emsp;
+    - Considerar criterios REST (rutas, verbos HTTP, etc.).<br>
+
+<br>
+
+### Inicializando los datos asociados a las entidades 'Persona'
+
+Dado que nuestra BBDD gestionada por H2 es mantenida en memoria del servidor, la misma es recreada cada vez que compilamos y ejecutamos nuestro servicio web. Por consiguiente, si deseamos visualizar y trabajar con datos para pruebas necesitaríamos incorporárselos previamente.
+
+- Crear un inicializador que cargue algunos datos de prueba (con 3 o 4 personas será suficiente). Esto se logra definiendo un servicio que implemente la interfaz **ApplicationRunner**. Allí, se inyecta el repositorio y se lo usa para dar de alta Personas en el sistema.
+
+<br>
+
+### Repositorios colaborativos
+
+Para la administración de nuestro código, que nos permita trabajar de forma distribuída y colaborativa, utilizaremos **GitHub** o **GitLab**, dos ultra conocidos clientes de **Git**.
+
+- Registrarse como usuario (si no lo estás aún).<br>
+- Crear el repositorio asociado al proyecto. <br>
+- Añadir colaboradores al proyecto (miembros de tu grupo). <br>
+- Docker
+    - (GitLab) En la sección **Packages and registries > Container registry**. Puede accederse al registro de imágenes docker del proyecto. El mimso contiene las instrucciones para loguearse y subir una imagen Docker al mismo.<br>
+    - (GitHub) ...<br>
 
 <br>
 
