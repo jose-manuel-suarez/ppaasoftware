@@ -2,7 +2,6 @@
 
 [**_Ver enunciado_**](/Practica%201/Practica%201.pdf "Practica1.pdf")
 
-
 ### Objetivo del proyecto
 
 &emsp;&emsp;
@@ -28,31 +27,31 @@ Crearemos nuestro proyecto utilizando el framewor SpringBoot, un subconjunto del
 &emsp;&emsp;
 Utilizaremos las opciones:
 
-- Project -> **Gradle - Groovy**
-- Language -> **Java**
-- Spring Boot -> **3.2.3** (Versiones 3.x.x requieren Java JDK 17)
-- Project Metadata
-    - Group -> **ar.edu.unlp.ppaas**
-    - Artifact -> **ejercicio1**
-    - Name -> **ejercicio1** (autogenerado a partir de Artifact)
-    - Description -> **patrones de arquitecturas de software - ejercicio 1**
-    - Package Name -> **ar.edu.unlp.ppaas.ejercicio1** (autogenerado dinámicamente a partir de los campos previos _[Group + Artifact]_)
-- Packaging -> **Jar**
-- Java -> **17**
+-   Project -> **Gradle - Groovy**
+-   Language -> **Java**
+-   Spring Boot -> **3.2.3** (Versiones 3.x.x requieren Java JDK 17)
+-   Project Metadata
+    -   Group -> **ar.edu.unlp.ppaas**
+    -   Artifact -> **ejercicio1**
+    -   Name -> **ejercicio1** (autogenerado a partir de Artifact)
+    -   Description -> **patrones de arquitecturas de software - ejercicio 1**
+    -   Package Name -> **ar.edu.unlp.ppaas.ejercicio1** (autogenerado dinámicamente a partir de los campos previos _[Group + Artifact]_)
+-   Packaging -> **Jar**
+-   Java -> **17**
 
 &emsp;&emsp;
 En la sección de la derecha (Dependencies) agregaremos:
 
-- **Spring Web**
-    - Que nos permitirá crear aplicaciones Spring respetando el patrón MVC e incorpora el servidor de aplicaciones Apache Tomcat.
-- **Spring Data JPA**
-    - Que nos permitirá utilizar Java Persistence API, además de Hibernate.
-- **H2 Database**
-    - Que nos permitirá mantener y gestinoar una BBDD en memoria, configurable mediante nuestro browser.
-- **Spring Boot DevTools** (Opcional)
-    - Que nos permitirá el reinicio rápido de nuestra aplicación, recarga en vivo luego de realizar cambios y una más amena experiencie de desarrollo.
-- **Lombok** (Opcional)
-    - Que nos permitirá reducir código repetitivo en nuestro proyecto, manteniendo código mucho más liviano.
+-   **Spring Web**
+    -   Que nos permitirá crear aplicaciones Spring respetando el patrón MVC e incorpora el servidor de aplicaciones Apache Tomcat.
+-   **Spring Data JPA**
+    -   Que nos permitirá utilizar Java Persistence API, además de Hibernate.
+-   **H2 Database**
+    -   Que nos permitirá mantener y gestinoar una BBDD en memoria, configurable mediante nuestro browser.
+-   **Spring Boot DevTools** (Opcional)
+    -   Que nos permitirá el reinicio rápido de nuestra aplicación, recarga en vivo luego de realizar cambios y una más amena experiencie de desarrollo.
+-   **Lombok** (Opcional)
+    -   Que nos permitirá reducir código repetitivo en nuestro proyecto, manteniendo código mucho más liviano.
 
 Finalmente generamos el proyecto Spring, seleccionando: &emsp;
 <button style="background-color: rgb(109, 179, 10); color: black; letter-spacing: 1px;">**GENERATE**</button><br>
@@ -109,7 +108,7 @@ El proyecto se estructura siguiendo la arquitectura de capas, bajo un patrón Mo
  <figcaption>Lineamiento general de la arquitectura propuesta por Spring.</figcaption>
  </figure>
 
--   ### Capa de BBDD
+-   ### Capa de datos (BBDD)
 
     Esta capa contiene todas las bases de datos de la aplicación, en nuestro caso sólo la BBDD H2 persistida en la memoria del servidor (un Apache Tomcat corriendo en el puerto 8080).<br>
     No tiene específicamente un subdirectorio asociado en el proyecto ni una anotación que la represente porque está manejada por el DBMS, Spring Data Jpa y el ORM Hibernate.
@@ -117,26 +116,91 @@ El proyecto se estructura siguiendo la arquitectura de capas, bajo un patrón Mo
 -   ### Capa de Modelo de Datos
 
     Esta capa de la aplicación es la que se encarga de los artefactos, conocidos aquí como **Entidades**, más cercanos a la BBDD. Aquí se define la estructura de cada entidad del modelo de datos, representada por sus atributos y las anotaciones que los etiquetan.<br>
-    Representada por el subdirectorio: `./model`<br>
-    Anotación asociada: `@Entity`
+    &emsp;Representada por el subdirectorio: `./model`<br>
+    &emsp;Anotación asociada: `@Entity`
 
 -   ### Capa de Repositorios
 
     Esta capa de la aplicación es la que se encarga de reutilizar la funcionalidad ya provista por el framework Spring, en cuanto a las operaciones básicas sobre nuestra BBDD, es decir, las relativas a las operaciones CRUD (Creacion, Lectura, Actualización y Eliminación). Esto es posible mediante herencia, ya que cada repositorio de nuestra aplicación heredará de la clase **JpaRepository**.<br>
-    Representada por el subdirectorio: `./repository`<br>
-    Anotación asociada: `@Repository`
+    &emsp;Representada por el subdirectorio: `./repository`<br>
+    &emsp;Anotación asociada: `@Repository`
 
 -   ### Capa de Servicios
 
     Esta capa de la aplicación contiene todo lo relativo a la lógica del negocio. Cada clase de servicio suele inyectar la dependencia al repositorio asociado que le permitirá la invocación de toda la lógica relativa a los CRUDs. Las operaciones que cada servicio añade suelen estar delcaradas en una interface asociada, la cuál el servicio implementa.<br>
-    Representada por el subdirectorio: `./service`<br>
-    Anotación asociada: `@Service`
+    &emsp;Representada por el subdirectorio: `./service`<br>
+    &emsp;Anotación asociada: `@Service`
 
 -   ### Capa de Controladores
 
     Esta capa de la aplicación contiene todo lo relativo a los puntos o métodos de invocación (endpoints) que serán ejecutables desde un browser o cualquier cliente web o servicio externo.<br>
-    Representada por el subdirectorio: `./controller`<br>
-    Anotación asociada: `@RestController`
+    &emsp;Representada por el subdirectorio: `./controller`<br>
+    &emsp;Anotación asociada: `@RestController`
+
+<br>
+
+### Agregando la entidad 'Persona' a nuestro modelo de datos
+
+-   Cree un subdirectorio **_/model_**, éste contedrá todas las clases asociadas a nuestro modelo.
+    -   Notación recomendada para cada clase definida en este paquete: _nombreEntidad**Model**.java_, siendo "nombre" el nombre de la clase. Por ejemplo, para la entidad **Persona** definiríamos: . _/model/**PersonaModel.java**_
+-   Crear la entidad del modelo de datos **Persona**, definiendo una clase que contenga, al menos, los siguientes atributos:
+    -   Id
+    -   Apellidos y nombres
+    -   Fecha de nacimiento
+    -   Email
+-   Crear para cada atributo definido, los getters y setters.
+-   Crear al menos 2 constructores asociadosm (sin atributos parametrizados y con todos los atributos parametrizados).
+-   Es posible utilizar **_Lombok_**, mediante anotaciones para tal fin (investigar: _@NoArgsConstructor_ _@AllArgsConstructor_
+    _@Getter_ _@Setter_).
+-   Crear una clase <a id="dto_persona">**DTO** para la entidad **Persona**</a> que contenga los siguientes atributos:
+
+    -   Id
+    -   Nombre completo -> que surge de la concatenación de apellidos y nombres, con formato: [apellidos, nombres].
+    -   Edad -> calculada a partir de los años transcurridos desde la fecha de nacimiento.
+    -   Email
+
+    &emsp;&emsp; **_Tip_**: tenga en cuenta que este objeto, por definición, no debería contener nada relativo a la lógica del negocio sino simplemente funcionalidad asociada al almacenamiento y recuperación de datos.
+
+<br>
+
+### Agregando el repositorio 'Persona'
+
+-   Defina un <a id="repositorio">repositorio JPA para las personas</a>, mediante la creación de una interface que extienda de alguna de las provistas por el framework. De este modo nuestras clases utilizarán el rpositorio mediante la implementación de esta interface que contendrá implementaciones por defecto para los CRUDs.
+    -   En nuestro caso extenderemos desde la clase **JpaRepository<T, id>**
+    -   Existen varios tipos de repositorios más en la jerarquía, por ejemplo **PagingAndSortingRepository**, que cómo su nombre indica permite implementar queries a la BD considerando paginación y ordenamiento.
+
+<br>
+
+### Agregando el los servicios asociados a la 'Persona'
+
+-   Defina un servicio encargado de transformar (mapping) una entidad de la BBDD (DAO) en el [DTO que definimos previamente](#dto_persona).
+
+    -   Es posible hacerlo manualmente o recurrir a una librería para tal fin, como por ejemplo: **MapStruct**.<br>
+
+-   Defina otro <a id="servicio">servicio</a> que contendrá las operaciones exportadas por el servicio web.
+    -   Dar de alta una nueva persona en el sistema (**CREATE**)
+    -   Obtener el listado de todas las personas del sistema (**READ** (N))
+    -   Obtener una persona determinada dentro del sistema (**READ** (1))
+    -   Actualizar una persona del sistema (**UPDATE**)
+    -   Eliminar una persona del sistema (**DELETE**)<br>
+
+&emsp;&emsp; **_Tips_**: <br>&emsp;&emsp;&emsp;&emsp; - Recuerde etiquetar ambas clases con la anotación **@Service** para registrarlas en Spring.<br>&emsp;&emsp;&emsp;&emsp; - Las operaciones que cada servicio debe implementar deberían estar definidas en una interface asociada.<br>&emsp;&emsp;&emsp;&emsp; - Recordar usar la etiqueta **@Autowired** en estos servicios, para inyectar las dependencias necesarias. Por ejemplo, el servicio que define los CRUDs, requerirá la inyección del [repositorio creado](#repositorio).<br>
+
+<br>
+
+### Creando el controlador asociado a la 'Persona'
+
+-   Crear un controlador donde se definan los puntos de acceso (_endpoints_) para las operaciones que exportará el srvicio.
+
+&emsp;&emsp; **_Tips_**: <br>&emsp;&emsp;&emsp;&emsp; - Recuerde etiquetar ambas clases con la anotación **@RestController** para registrarlas en Spring.<br>&emsp;&emsp;&emsp;&emsp; - Recordar usar la etiqueta **@Autowired** cuando lo requiera, para inyectar las dependencias necesarias. Por ejemplo, el controlador requerirá la inyección del [servicio creado](#servicio) para implementar cada funcionalidad expuesta por un punto de acceso.<br>&emsp;&emsp;&emsp;&emsp; - Considerar criterios REST (rutas, verbos HTTP, etc.).<br>
+
+<br>
+
+### Inicializando los datos asociados a las entidades 'Persona'
+
+Dado que nuestra BBDD gestionada por H2 es mantenida en memoria del servidor, la misma es recreada cada vez que compilamos y ejecutamos nuestro servicio web. Por consiguiente, si deseamos visualizar y trabajar con datos para pruebas necesitaríamos incorporárselos previamente.
+
+-   Crear un inicializador que cargue algunos datos de prueba (con 3 o 4 personas será suficiente). Esto se logra definiendo un servicio que implemente la interfaz **ApplicationRunner**. Allí, se inyecta el repositorio y se lo usa para dar de alta Personas en el sistema.
 
 <br>
 
@@ -148,8 +212,9 @@ Docker es una herramienta ... su proposito es ...
 En el directorio raíz de nuestro proyecto debemos crear un archivo de configuración para Docker. Aquí puedes visalizar un ejemplo de dicho archivo para nuestro proyecto, asegúrate que su nombre sea [**dockerfile**](/Practica%201/dockerfile) y que el directorio sea el correcto.<br>
 
 &emsp;Tips del archivo **dockerfile**:
-- nombre: **dockerfile** o **Dockerfile** sin extensión alguna.
-- ubicación: al mismo nivel que la carpeta **/src** y **/build**
+
+-   nombre: **dockerfile** o **Dockerfile** sin extensión alguna.
+-   ubicación: al mismo nivel que la carpeta **/src** y **/build**
 
 &emsp;Comandos:
 
@@ -163,85 +228,16 @@ En el directorio raíz de nuestro proyecto debemos crear un archivo de configura
 
 <br>
 
-### Agregando la entidad 'Persona' a nuestro modelo de datos
-
-- Cree un subdirectorio **_/model_**, éste contedrá todas las clases asociadas a nuestro modelo.
-    - Notación recomendada para cada clase definida en este paquete: _nombreEntidad**Model**.java_, siendo "nombre" el nombre de la clase. Por ejemplo, para la entidad **Persona** definiríamos: . _/model/**PersonaModel.java**_
-- Crear la entidad del modelo de datos **Persona**, definiendo una clase que contenga, al menos, los siguientes atributos:
-    - Id
-    - Apellidos y nombres
-    - Fecha de nacimiento
-    - Email
-- Crear para cada atributo definido, los getters y setters.
-- Crear al menos 2 constructores asociadosm (sin atributos parametrizados y con todos los atributos parametrizados).
-- Es posible utilizar **_Lombok_**, mediante anotaciones para tal fin (investigar: _@NoArgsConstructor_ _@AllArgsConstructor_
-_@Getter_ _@Setter_).
-- Crear una clase <a id="dto_persona">**DTO** para la entidad **Persona**</a> que contenga los siguientes atributos:
-    - Id
-    - Nombre completo -> que surge de la concatenación de apellidos y nombres, con formato: [apellidos, nombres].
-    - Edad -> calculada a partir de los años transcurridos desde la fecha de nacimiento.
-    - Email
-
-    &emsp;&emsp; **_Tip_**: tenga en cuenta que este objeto, por definición, no debería contener nada relativo a la lógica del negocio sino simplemente funcionalidad asociada al almacenamiento y recuperación de datos.
-
-<br>
-
-### Agregando el repositorio 'Persona'
-
-- Defina un <a id="repositorio">repositorio JPA para las personas</a>, mediante la creación de una interface que extienda de alguna de las provistas por el framework. De este modo nuestras clases utilizarán el rpositorio mediante la implementación de esta interface que contendrá implementaciones por defecto para los CRUDs.
-    - En nuestro caso extenderemos desde la clase **JpaRepository<T, id>**
-    - Existen varios tipos de repositorios más en la jerarquía, por ejemplo **PagingAndSortingRepository**, que cómo su nombre indica permite implementar queries a la BD considerando paginación y ordenamiento.
-
-<br>
-
-### Agregando el los servicios asociados a la 'Persona'
-
-- Defina un servicio encargado de transformar (mapping) una entidad de la BBDD (DAO) en el [DTO que definimos previamente](#dto_persona).
-    - Es posible hacerlo manualmente o recurrir a una librería para tal fin, como por ejemplo: **MapStruct**.<br>
-
-- Defina otro <a id="servicio">servicio</a> que contendrá las operaciones exportadas por el servicio web.
-    - Dar de alta una nueva persona en el sistema (**CREATE**)
-    - Obtener el listado de todas las personas del sistema (**READ** (N))
-    - Obtener una persona determinada dentro del sistema (**READ** (1))
-    - Actualizar una persona del sistema (**UPDATE**)
-    - Eliminar una persona del sistema (**DELETE**)<br>
-
-&emsp;&emsp; **_Tips_**: <br>&emsp;&emsp;&emsp;&emsp;
-    - Recuerde etiquetar ambas clases con la anotación **@Service** para registrarlas en Spring.<br>&emsp;&emsp;&emsp;&emsp;
-    - Las operaciones que cada servicio debe implementar deberían estar definidas en una interface asociada.<br>&emsp;&emsp;&emsp;&emsp;
-    - Recordar usar la etiqueta **@Autowired** en estos servicios, para inyectar las dependencias necesarias. Por ejemplo, el servicio que define los CRUDs, requerirá la inyección del [repositorio creado](#repositorio).<br>
-
-<br>
-
-### Creando el controlador asociado a la 'Persona'
-
-- Crear un controlador donde se definan los puntos de acceso (_endpoints_) para las operaciones que exportará el srvicio.
-
-&emsp;&emsp; **_Tips_**: <br>&emsp;&emsp;&emsp;&emsp;
-    - Recuerde etiquetar ambas clases con la anotación **@RestController** para registrarlas en Spring.<br>&emsp;&emsp;&emsp;&emsp;
-    - Recordar usar la etiqueta **@Autowired** cuando lo requiera, para inyectar las dependencias necesarias. Por ejemplo, el controlador requerirá la inyección del [servicio creado](#servicio) para implementar cada funcionalidad expuesta por un punto de acceso.<br>&emsp;&emsp;&emsp;&emsp;
-    - Considerar criterios REST (rutas, verbos HTTP, etc.).<br>
-
-<br>
-
-### Inicializando los datos asociados a las entidades 'Persona'
-
-Dado que nuestra BBDD gestionada por H2 es mantenida en memoria del servidor, la misma es recreada cada vez que compilamos y ejecutamos nuestro servicio web. Por consiguiente, si deseamos visualizar y trabajar con datos para pruebas necesitaríamos incorporárselos previamente.
-
-- Crear un inicializador que cargue algunos datos de prueba (con 3 o 4 personas será suficiente). Esto se logra definiendo un servicio que implemente la interfaz **ApplicationRunner**. Allí, se inyecta el repositorio y se lo usa para dar de alta Personas en el sistema.
-
-<br>
-
 ### Repositorios colaborativos
 
 Para la administración de nuestro código, que nos permita trabajar de forma distribuída y colaborativa, utilizaremos **GitHub** o **GitLab**, dos ultra conocidos clientes de **Git**.
 
-- Registrarse como usuario (si no lo estás aún).<br>
-- Crear el repositorio asociado al proyecto. <br>
-- Añadir colaboradores al proyecto (miembros de tu grupo). <br>
-- Docker
-    - (GitLab) En la sección **Packages and registries > Container registry**. Puede accederse al registro de imágenes docker del proyecto. El mimso contiene las instrucciones para loguearse y subir una imagen Docker al mismo.<br>
-    - (GitHub) ...<br>
+-   Registrarse como usuario (si no lo estás aún).<br>
+-   Crear el repositorio asociado al proyecto. <br>
+-   Añadir colaboradores al proyecto (miembros de tu grupo). <br>
+-   Docker
+    -   (GitLab) En la sección **Packages and registries > Container registry**. Puede accederse al registro de imágenes docker del proyecto. El mimso contiene las instrucciones para loguearse y subir una imagen Docker al mismo.<br>
+    -   (GitHub) ...<br>
 
 <br>
 
@@ -249,17 +245,18 @@ Para la administración de nuestro código, que nos permita trabajar de forma di
 
 &emsp;[![Java17](https://img.shields.io/badge/Descargar_JDK_17-oracle.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.oracle.com/java/technologies/downloads/#java17)</br>
 &emsp;[![SpringInitializr](https://img.shields.io/badge/Spring_Initializr-start.spring.io-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://start.spring.io/)</br>
-&emsp;[![SpringBoot](https://img.shields.io/badge/Documentacion_Spring_Boot-spring.io-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://spring.io/projects/spring-boot)</br>
-&emsp;[![H2DB](https://img.shields.io/badge/H2_Database_Engine-h2database.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.h2database.com/html/main.html)</br>
-&emsp;[![H2DBSpring](https://img.shields.io/badge/Spring_Boot_with_H2_Data_Base-baeldung.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.baeldung.com/spring-boot-h2-database)</br>
-&emsp;[![ArqSpring](https://img.shields.io/badge/SpringBoot_Architecture-geeksforgeeks.org-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.geeksforgeeks.org/spring-boot-architecture/)</br>
+&emsp;[![SpringBoot](https://img.shields.io/badge/Documentacion_Spring_Boot-spring.io-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://spring.io/projects/spring-boot)
+&emsp;[![ArqSpring](https://img.shields.io/badge/SpringBoot_Architecture-geeksforgeeks.org-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.geeksforgeeks.org/spring-boot-architecture/)
 &emsp;[![SpringMVC](https://img.shields.io/badge/Spring_Web_MVC-docs.spring.io-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://docs.spring.io/spring-framework/docs/5.3.25/reference/html/web.html#mvc)</br>
+&emsp;[![H2DB](https://img.shields.io/badge/H2_Database_Engine-h2database.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.h2database.com/html/main.html)
+&emsp;[![H2DBSpring](https://img.shields.io/badge/Spring_Boot_with_H2_Data_Base-baeldung.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.baeldung.com/spring-boot-h2-database)</br>
 &emsp;[![Lombok](https://img.shields.io/badge/Lombok-projectlombok.org-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://projectlombok.org/)</br>
 &emsp;[![DTO](https://img.shields.io/badge/DTO-wikipedia.org-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://en.wikipedia.org/wiki/Data_transfer_object)</br>
 &emsp;[![ServiciosREST](https://img.shields.io/badge/Construyendo_servicios_REST_con_Spring-spring.io-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://spring.io/guides/tutorials/rest)</br>
-&emsp;[![JPAEntity](https://img.shields.io/badge/Entidades_JPA-baeldung.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.baeldung.com/jpa-entities)</br>
+&emsp;[![JPAEntity](https://img.shields.io/badge/Entidades_JPA-baeldung.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.baeldung.com/jpa-entities)
 &emsp;[![PersistenceJPA](https://img.shields.io/badge/Capa_de_persistencia_JPA-baeldung.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa)</br>
 &emsp;[![Reposiory](https://img.shields.io/badge/Repositorios_Spring-baeldung.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.baeldung.com/spring-data-repositories)</br>
+&emsp;[![SpringAnnotations](https://img.shields.io/badge/Spring_@Annotacions-baeldung.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.baeldung.com/spring-component-repository-service)
 &emsp;[![Autowired](https://img.shields.io/badge/Spring_anotacion_@Autowired-baeldung.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.baeldung.com/spring-autowire)</br>
 &emsp;[![MapStruct](https://img.shields.io/badge/Libreria_Map_Struct-mapstruct.org-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://mapstruct.org/documentation/stable/reference/html/#basic-mappings)</br>
 &emsp;[![AppRunner](https://img.shields.io/badge/Application_Runner-baeldung.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.baeldung.com/running-setup-logic-on-startup-in-spring#7-spring-boot-applicationrunner)</br>
@@ -271,6 +268,6 @@ Para la administración de nuestro código, que nos permita trabajar de forma di
 
 Ante cualquier consulta, problema o sugerencia relativa a ésta práctica, no dudes en comunicarte con nosotros mediante los canales disponibles:
 
-&emsp;[![Luisma-email](https://img.shields.io/badge/Luis_Mariano_Bibbo-0A84FF?logo=gmail)](mailto:lmbibbo@lifia.info.unlp.edu.ar.com)
-&emsp;[![Jose-email](https://img.shields.io/badge/Jose_Manuel_Suarez-0A84FF?logo=Gmail)](mailto:jsuarez@lifia.info.unlp.edu.ar)
-&emsp;[![Canal-Discord](https://img.shields.io/badge/Discord_PPAA_de_Software-%235865F2.svg?&logo=discord&logoColor=white)](https://www.discord.com/josemanuel.suarez.87)
+&emsp;[![LMB-email](https://img.shields.io/badge/Luis_Mariano_Bibbo-0A84FF?logo=gmail)](mailto:lmbibbo@lifia.info.unlp.edu.ar)
+&emsp;[![JMS-email](https://img.shields.io/badge/Jose_Manuel_Suarez-0A84FF?logo=Gmail)](mailto:jsuarez@lifia.info.unlp.edu.ar)
+&emsp;[![Canal-Discord](https://img.shields.io/badge/PPAA_de_Software-%235865F2.svg?&logo=discord&logoColor=white)](https://discord.gg/7rQXm7Nk)
