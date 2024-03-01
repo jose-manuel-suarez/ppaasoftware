@@ -266,8 +266,6 @@ Para la administración de nuestro código, que nos permita trabajar de forma di
 
 ### Contacto
 
-Ante cualquier consulta, problema o sugerencia relativa a ésta práctica, no dudes en comunicarte con nosotros mediante los canales disponibles:
-
 &emsp;[![LMB-email](https://img.shields.io/badge/Luis_Mariano_Bibbo-0A84FF?logo=gmail)](mailto:lmbibbo@lifia.info.unlp.edu.ar)
 &emsp;[![JMS-email](https://img.shields.io/badge/Jose_Manuel_Suarez-0A84FF?logo=Gmail)](mailto:jsuarez@lifia.info.unlp.edu.ar)
 &emsp;[![Canal-Discord](https://img.shields.io/badge/PPAA_de_Software-%235865F2.svg?&logo=discord&logoColor=white)](https://discord.gg/7rQXm7Nk)

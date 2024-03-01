@@ -42,4 +42,4 @@ Puedes contactarte con la cátedra mediante los siguientes canales
 
 &emsp;[![Luisma-email](https://img.shields.io/badge/Luis_Mariano_Bibbo-0A84FF?logo=gmail)](mailto:lmbibbo@lifia.info.unlp.edu.ar.com)
 &emsp;[![Jose-email](https://img.shields.io/badge/Jose_Manuel_Suarez-0A84FF?logo=Gmail)](mailto:jsuarez@lifia.info.unlp.edu.ar)
-</br>&emsp;[![Canal-Discord](https://img.shields.io/badge/Discord_PPAA_de_Software-%235865F2.svg?&logo=discord&logoColor=white)](https://www.discord.com/josemanuel.suarez.87)
+&emsp;[![Canal-Discord](https://img.shields.io/badge/PPAA_de_Software-%235865F2.svg?&logo=discord&logoColor=white)](https://www.discord.com/josemanuel.suarez.87)
