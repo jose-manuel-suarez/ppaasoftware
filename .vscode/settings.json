@@ -1,4 +1,5 @@
 {
-	"gitProjectManager.baseProjectsFolders": ["C:/Users/PC/desarrollo"],
+	//"gitProjectManager.baseProjectsFolders": ["C:/Users/PC/desarrollo"],
+	"gitProjectManager.baseProjectsFolders": ["C:/Users/José Manuel Suarez/desarrollo"],
 	"gitProjectManager.ignoredFolders": ["node_modules"]
 }

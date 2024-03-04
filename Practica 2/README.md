@@ -37,41 +37,45 @@ La documentación asociada al [_**uso de jakarta**_](https://beanvalidation.org/
 
 1. Crear la entidad **Direccion**, con los siguientes atributos:
 
-    - **Calle** -> no admite null.
-    - **Número** -> no admite null.
-    - **Piso** -> no admite null.
-    - **Departamento** -> no admite null.
-    - **Localidad** -> no admite null.
-    - **Provincia** -> no admite null.
-    - **País** -> no admite null.
+    - **Calle** -> no puede ser vacío.
+    - **Número** -> no puede ser vacío.
+    - **Piso** -> puede estar vacío, es opcional.
+    - **Departamento** -> puede estar vacío, es opcional.
+    - **Localidad** -> no puede ser vacío.
+    - **Provincia** -> no puede ser vacío.
+    - **País** -> no puede ser vacío.
 
 2. Actualizar la entidad **Persona**, con las siguientes validaciones:
 
-    - **Apellido** -> no admite null.
-    - **Nombre** -> no admite null.
-    - **Fecha de Nacimiento** -> no admite null.
-    - **Email** -> no admite null.
+    - **Apellido** -> no puede ser vacío.
+    - **Nombre** -> no puede ser vacío.
+    - **Fecha de Nacimiento** -> no se admiten valores inferiores a 18 ni mayores a 150.
+    - **Email** -> no puede ser vacío, tener un formato inválido o repetirse en el sistema.
 
 3. Verificar todas y cada una de las validaciones implementadas mediante **PostMan** o cualquier librería o extensión para tal fin.
 
-4. Actualizar el dominio para manejar la relación entre cada persona y sus direcciones asociadas de envío (debe tener al menos una) y su dirección de facturación (debe obligatoriamente tener una).
-    - En los siguientes enlaces tenemos más información sobre este tema:
-        - [_**uso de jakarta**_](https://beanvalidation.org/2.0/spec/ "Información sobre Jakarta")
-        - [_**validaciones básicas**_](https://www.baeldung.com/java-validation "Validaciones básicas Jakarta")
-        - [_**lista completa de validaciones**_](https://beanvalidation.org/2.0/spec/#builtinconstraints "Lista de validaciones Jakarta").
-        - [_**lista completa de validaciones**_](https://beanvalidation.org/2.0/spec/#builtinconstraints "Lista de validaciones Jakarta").
+    **_Recomendación_**: Analice las distintas anotaciones que el framework proporciona para cada tipo de validación requerida y utilice la más indicada para cada caso. Ej. pregúntese para cada atributo: _¿ debería usar @NotNull, @NotEmpty o @NotBlank aquí ?_
+
+4. Actualizar el dominio de aplicación para permitir administrar la relación entre cada persona y sus direcciones. El sistema debe incorporar dos tipos de direcciones para cada persona:<br>
+&emsp;- **Direcciones asociadas de envío** (debe tener al menos una)<br>
+&emsp;- **Dirección de facturación** (debe tener una).<br><br>
+En los siguientes enlaces encontrará más información sobre este tema:
+    - [_**Relaciones en Spring**_](https://www.baeldung.com/spring-data-rest-relationships "Relaciones en Spring")
+        - Céntrese en las relaciones, ignorar el uso de @RestResource
+    - [_**Relación 1 a 1**_](https://www.baeldung.com/jpa-one-to-one "Relación 1 a 1")
+    - [_**Relación 1 a N**_](https://www.baeldung.com/hibernate-one-to-many "Relación 1 a N")
+    - [_**Relación N a N**_](https://www.baeldung.com/jpa-many-to-many "Relación N a N")
 
 <br>
 
 ### Implementando autenticación y autorización al proyecto
 
-&emsp;&emsp;
 Implementar mediante **JSON Web Token** (JWT), la autenticación y autorización para cada invocación de los servicios REST expuestos.
 Para ello, inicialmente consideraremos únicamente dos roles posibles:
 
--   **USER** -> sólo puede realizar lectura sobre los datos.
--   **ADMIN** -> puede realizar lectura y escritura sobre los datos.<br><br>
-**_Nota_**: Considere utilizar como _username_ el **email** de las personas.
+-   **USER** (usuario) -> sólo puede realizar lectura sobre los datos.
+-   **ADMIN** (administrador) -> puede realizar lectura y escritura sobre los datos.<br>
+**_Aclaración_**: Considere utilizar como _username_ el **email** de las personas.
 
 <br>
 
