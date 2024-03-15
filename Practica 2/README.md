@@ -79,6 +79,27 @@ Para ello, inicialmente consideraremos únicamente dos roles posibles:
 
 <br>
 
+### Implementación de casos de prueba mediante JUnit + Mockito
+
+Para las validaciones de nuestras clases utilizaremos JUnit y la utilización de Mocks Objects mediante la librería Mockito.
+
+<br>
+
+### Documentación de la API mediante OpenAPI
+
+Para la documentación de nuestra API Rest utilizaremos el estandar OpenAPI que nos permitirá obtener de manera directa la documentación asociada a la definición de nuestros puntos de entrada en formato JSON  o YAML.
+
+Además mediante su integración con Swagger nos permitirá visualizar y trabajar sobre cada punto de entrada de manera ágil y simple, utilizando una interfaz gráfica atractiva y muy intuitiva.
+
+<br>
+
+### Documentación de la arquitectura mediante C4
+
+Para la documentación de nuestras arquitecturas de software utilizaremos el **modelo C4**.
+Esto nos permitirá comunicar a cualquier interesado en el proyecto, los diferentes niveles de detalle del mismo.
+
+<br>
+
 ### Fuentes Relacionadas
 
 &emsp;[![JakartaValidation](https://img.shields.io/badge/Jakarta_Validation-beanvalidation.org-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://beanvalidation.org/2.0/spec/)<br>
@@ -87,10 +108,21 @@ Para ello, inicialmente consideraremos únicamente dos roles posibles:
 &emsp;[![ListaValidaciones](https://img.shields.io/badge/Lista_de_Validaciones_Jakarta-beanvalidation.org-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://beanvalidation.org/2.0/spec/#builtinconstraints)<br>
 &emsp;[![@Valid](https://img.shields.io/badge/Uso_de_@Valid-bealdung.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.baeldung.com/spring-boot-bean-validation#implementing-a-rest-controller)<br>
 
+&emsp;[![OpenAPI](https://img.shields.io/badge/OpenAPI_Initiative-openapis.org-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.openapis.org/)<br>
+
+&emsp;[![STC](https://img.shields.io/badge/Self_Testing_Code-martinFouler.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://martinfowler.com/bliki/SelfTestingCode.html)<br>
+&emsp;[![EjMockito](https://img.shields.io/badge/Ejemplo_con_Mockito-youtube.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.youtube.com/watch?v=uGZQdD9IpQc)<br>
+
+&emsp;[![JSON](https://img.shields.io/badge/Sintaxis_JSON-json.org-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.json.org/json-en.html)<br>
+&emsp;[![Yaml](https://img.shields.io/badge/Sintaxis_YAML-docs.ansible.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html)<br>
+
+&emsp;[![C4](https://img.shields.io/badge/Modelo_de_Visualizacion_de_Arquitectura_C4-c4model.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://c4model.com/)<br>
+
+
 <br>
 
 ### Contacto
 
 &emsp;[![LMB-email](https://img.shields.io/badge/Luis_Mariano_Bibbo-0A84FF?logo=gmail)](mailto:lmbibbo@lifia.info.unlp.edu.ar)
 &emsp;[![JMS-email](https://img.shields.io/badge/Jose_Manuel_Suarez-0A84FF?logo=Gmail)](mailto:jsuarez@lifia.info.unlp.edu.ar)
-&emsp;[![Canal-Discord](https://img.shields.io/badge/PPAA_de_Software-%235865F2.svg?&logo=discord&logoColor=white)](https://discord.gg/7rQXm7Nk)
+&emsp;[![Canal-Discord](https://img.shields.io/badge/PPAA_de_Software-%235865F2.svg?&logo=discord&logoColor=white)](https://discord.gg/XAdRPKVZCT)
