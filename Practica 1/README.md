@@ -262,10 +262,11 @@ Para la administración de nuestro código, que nos permita trabajar de forma di
 &emsp;[![AppRunner](https://img.shields.io/badge/Application_Runner-baeldung.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://www.baeldung.com/running-setup-logic-on-startup-in-spring#7-spring-boot-applicationrunner)</br>
 &emsp;[![GitHubDocs](https://img.shields.io/badge/GitHub_Docs-docs.github.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://docs.github.com/es)
 &emsp;[![GitLabDocs](https://img.shields.io/badge/GitLab_Docs-docs.gitlab.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://docs.gitlab.com/)</br>
+&emsp;[![CI/CD](https://img.shields.io/badge/CI/CD_con_GitLab-medium.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://alexmarket.medium.com/introducci%C3%B3n-a-ci-cd-con-gitlab-23d4e9cc6482)</br>
 <br>
 
 ### Contacto
 
 &emsp;[![LMB-email](https://img.shields.io/badge/Luis_Mariano_Bibbo-0A84FF?logo=gmail)](mailto:lmbibbo@lifia.info.unlp.edu.ar)
 &emsp;[![JMS-email](https://img.shields.io/badge/Jose_Manuel_Suarez-0A84FF?logo=Gmail)](mailto:jsuarez@lifia.info.unlp.edu.ar)
-&emsp;[![Canal-Discord](https://img.shields.io/badge/PPAA_de_Software-%235865F2.svg?&logo=discord&logoColor=white)](https://discord.gg/7rQXm7Nk)
+&emsp;[![Canal-Discord](https://img.shields.io/badge/PPAA_de_Software-%235865F2.svg?&logo=discord&logoColor=white)](https://discord.gg/y7R48Crr)

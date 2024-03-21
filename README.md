@@ -18,6 +18,7 @@ La cátdra propone como sugerencia un stack de desarrollo para las prácticas y 
 [![GitHub](<https://img.shields.io/badge/GitHub-Sistema_de_Control_de_versiones_(DSCV)-%23181717.svg?logo=github&logoColor=white>)](https://github.com/) &emsp;
 [![GitLab](<https://img.shields.io/badge/GitLab-Sistema_de_Control_de_versiones_(DSCV)-%23181717.svg?logo=gitlab&logoColor=white>)](https://gitlab.com/)
 </br>&emsp; [![Gradle](https://img.shields.io/badge/Gradle-Gestor_de_dependencias-02303A.svg?logo=Gradle&logoColor=%23009639)](https://gradle.org/)
+&emsp; [![Maven](https://img.shields.io/badge/Maven-Gestor_de_dependencias-02303A.svg?logo=Apache&logoColor=D22128)](https://maven.apache.org/)
 </br>&emsp; [![Java](https://img.shields.io/badge/Java-Lenguaje_de_programacion-DC322F?logo=openjdk&logoColor=yellow)](https://www.java.com/es/)
 </br>&emsp; [![SpringBoot](https://img.shields.io/badge/Spring_Boot-Framework_BackEnd-%23107C10?logo=spring-boot)](https://spring.io/projects/spring-boot)
 [![H2DB](https://img.shields.io/badge/H2_DDBB-Base_de_Datos_en_memoria-%230056D2?logo=scrimba)](https://www.h2database.com/html/main.html)
@@ -42,4 +43,4 @@ Puedes contactarte con la cátedra mediante los siguientes canales
 
 &emsp;[![Luisma-email](https://img.shields.io/badge/Luis_Mariano_Bibbo-0A84FF?logo=gmail)](mailto:lmbibbo@lifia.info.unlp.edu.ar.com)
 &emsp;[![Jose-email](https://img.shields.io/badge/Jose_Manuel_Suarez-0A84FF?logo=Gmail)](mailto:jsuarez@lifia.info.unlp.edu.ar)
-&emsp;[![Canal-Discord](https://img.shields.io/badge/PPAA_de_Software-%235865F2.svg?&logo=discord&logoColor=white)](https://www.discord.com/josemanuel.suarez.87)
+&emsp;[![Canal-Discord](https://img.shields.io/badge/PPAA_de_Software-%235865F2.svg?&logo=discord&logoColor=white)](https://discord.gg/y7R48Crr)
