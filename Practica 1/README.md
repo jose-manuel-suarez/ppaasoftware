@@ -228,6 +228,15 @@ En el directorio raíz de nuestro proyecto debemos crear un archivo de configura
 
 <br>
 
+### Documentación de la arquitectura del proyecto
+
+A fin de documentar y visualizar de manera cómoda y amigable la arquitectura del proyecto, utilizaremos el [**Modelo C4**](https://c4model.com/ "Herramienta de visualización de la arquitectura de software").<br>
+Tenga en cuenta que debe existir correlatividad entre las entidades relacionadas en cada nivel del sistema.
+La ubicación de esta documentación debe documentarse adecuadamente en el proyecto (archivo markdown _'README.md'_ en el directorio raíz).
+- Así mismo se recomienda incorporar a la documentación del proyecto todo lo relativo al uso y versionado de herramientas utilizadas, nomenclatura de versionado adoptado, utilización de ramas Git, autores del proyecto, etc.
+
+<br>
+
 ### Repositorios colaborativos
 
 Para la administración de nuestro código, que nos permita trabajar de forma distribuída y colaborativa, utilizaremos **GitHub** o **GitLab**, dos ultra conocidos clientes de **Git**.
@@ -237,7 +246,7 @@ Para la administración de nuestro código, que nos permita trabajar de forma di
 -   Añadir colaboradores al proyecto (miembros de tu grupo). <br>
 -   Docker
     -   (GitLab) En la sección **Packages and registries > Container registry**. Puede accederse al registro de imágenes docker del proyecto. El mimso contiene las instrucciones para loguearse y subir una imagen Docker al mismo.<br>
-    -   (GitHub) ...<br>
+    -   (GitHub) ... proceso análogo. <br>
 
 <br>
 
@@ -263,7 +272,7 @@ Para la administración de nuestro código, que nos permita trabajar de forma di
 &emsp;[![GitHubDocs](https://img.shields.io/badge/GitHub_Docs-docs.github.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://docs.github.com/es)
 &emsp;[![GitLabDocs](https://img.shields.io/badge/GitLab_Docs-docs.gitlab.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://docs.gitlab.com/)</br>
 &emsp;[![CI/CD](https://img.shields.io/badge/CI/CD_con_GitLab-medium.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://alexmarket.medium.com/introducci%C3%B3n-a-ci-cd-con-gitlab-23d4e9cc6482)</br>
-<br>
+&emsp;[![C4Model](https://img.shields.io/badge/Modelo_C4-c4Model.com-1abc9c.svg?logo=GoogleChrome&logoColor=1abc9c)](https://c4model.com/)</br>
 
 ### Contacto
 
